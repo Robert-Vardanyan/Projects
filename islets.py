@@ -1,7 +1,9 @@
 ### Rova
-### Program: Find islands count on map. v. 1.0
-### Version: 1.0
+### Program: Find islands count on map.
+### Version: 1.5
 import random
+import os
+os.system('cls') 
 map_x,map_y = 10,10
 choice = '0001'
 cordinatner = []
@@ -11,9 +13,6 @@ for i in range(map_y):
         if k == '1':
             cord_k = [i,j]
             cordinatner.append(cord_k)
-        print(k,end = '')
-    print()
-kxzi = []
 def poisk(cordinatner, h =0):
     cordinatner_ashx = cordinatner.copy()
     if not kxzi:
@@ -36,10 +35,20 @@ def poisk(cordinatner, h =0):
                 cordinatner.remove(l)
         return poisk(cordinatner, h + 1)
 n = 0
+kxziner = []
 while True:
+    kxzi = []
     n += 1
     print(f'kxzi {n}',poisk(cordinatner))
-    kxzi.clear()
+    kxziner += kxzi
     if len(cordinatner) == 0:
         print('qanaky',n)
         break
+for y in range(map_y):
+    for x in range(map_x):
+        kety = [y,x]
+        if kety in kxziner:
+            print('🟨', end = '')
+        else:
+            print('🌊', end = '')
+    print()
